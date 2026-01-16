@@ -1,0 +1,324 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:farm_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "farm_name",
+  "farm_code",
+  "status",
+  "column_break_basic",
+  "owner_name",
+  "owner_contact",
+  "owner_email",
+  "location_section",
+  "address_line_1",
+  "address_line_2",
+  "city",
+  "column_break_location",
+  "state",
+  "country",
+  "postal_code",
+  "geo_section",
+  "latitude",
+  "longitude",
+  "column_break_geo",
+  "altitude",
+  "geojson",
+  "area_section",
+  "total_area",
+  "area_uom",
+  "cultivable_area",
+  "column_break_area",
+  "irrigated_area",
+  "rainfed_area",
+  "details_section",
+  "farm_type",
+  "primary_activity",
+  "column_break_details",
+  "soil_type",
+  "water_source",
+  "climate_zone",
+  "acquisition_section",
+  "ownership_type",
+  "acquired_date",
+  "column_break_acquisition",
+  "land_value",
+  "registration_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "farm_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Farm Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "farm_code",
+   "fieldtype": "Data",
+   "label": "Farm Code",
+   "unique": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nLeased Out\nUnder Development"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "owner_name",
+   "fieldtype": "Data",
+   "label": "Owner Name"
+  },
+  {
+   "fieldname": "owner_contact",
+   "fieldtype": "Data",
+   "label": "Owner Contact",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "owner_email",
+   "fieldtype": "Data",
+   "label": "Owner Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "City/Village"
+  },
+  {
+   "fieldname": "column_break_location",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State/Province"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "geo_section",
+   "fieldtype": "Section Break",
+   "label": "GPS Coordinates"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_geo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "altitude",
+   "fieldtype": "Float",
+   "label": "Altitude (meters)"
+  },
+  {
+   "fieldname": "geojson",
+   "fieldtype": "Geolocation",
+   "label": "Farm Boundary"
+  },
+  {
+   "fieldname": "area_section",
+   "fieldtype": "Section Break",
+   "label": "Area Information"
+  },
+  {
+   "fieldname": "total_area",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Area",
+   "reqd": 1
+  },
+  {
+   "default": "Hectare",
+   "fieldname": "area_uom",
+   "fieldtype": "Link",
+   "label": "Area UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cultivable_area",
+   "fieldtype": "Float",
+   "label": "Cultivable Area"
+  },
+  {
+   "fieldname": "column_break_area",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "irrigated_area",
+   "fieldtype": "Float",
+   "label": "Irrigated Area"
+  },
+  {
+   "fieldname": "rainfed_area",
+   "fieldtype": "Float",
+   "label": "Rainfed Area"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Farm Details"
+  },
+  {
+   "fieldname": "farm_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Farm Type",
+   "options": "\nCrop Farm\nLivestock Farm\nMixed Farm\nOrchard\nVineyard\nDairy Farm\nPoultry Farm\nAquaculture\nGreenhouse\nOrganic Farm"
+  },
+  {
+   "fieldname": "primary_activity",
+   "fieldtype": "Select",
+   "label": "Primary Activity",
+   "options": "\nCrop Production\nLivestock Rearing\nDairy Farming\nPoultry Farming\nFish Farming\nHorticulture\nFloriculture\nAgro-forestry"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "soil_type",
+   "fieldtype": "Link",
+   "label": "Predominant Soil Type",
+   "options": "Soil Texture"
+  },
+  {
+   "fieldname": "water_source",
+   "fieldtype": "Select",
+   "label": "Primary Water Source",
+   "options": "\nBorewell\nCanal\nRiver\nPond\nRainwater Harvesting\nMunicipal Supply\nTanker\nMultiple Sources"
+  },
+  {
+   "fieldname": "climate_zone",
+   "fieldtype": "Select",
+   "label": "Climate Zone",
+   "options": "\nTropical\nSubtropical\nTemperate\nArid\nSemi-arid\nMediterranean\nContinental"
+  },
+  {
+   "fieldname": "acquisition_section",
+   "fieldtype": "Section Break",
+   "label": "Ownership & Acquisition"
+  },
+  {
+   "fieldname": "ownership_type",
+   "fieldtype": "Select",
+   "label": "Ownership Type",
+   "options": "\nOwned\nLeased\nRented\nShared\nCommunity"
+  },
+  {
+   "fieldname": "acquired_date",
+   "fieldtype": "Date",
+   "label": "Acquired Date"
+  },
+  {
+   "fieldname": "column_break_acquisition",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "land_value",
+   "fieldtype": "Currency",
+   "label": "Land Value"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Land Registration Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Farm",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "farm_name",
+ "track_changes": 1
+}

@@ -1,0 +1,362 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "plot_name",
+  "plot_code",
+  "farm",
+  "column_break_basic",
+  "status",
+  "current_crop",
+  "current_crop_cycle",
+  "area_section",
+  "area",
+  "area_uom",
+  "column_break_area",
+  "perimeter",
+  "perimeter_uom",
+  "location_section",
+  "latitude",
+  "longitude",
+  "column_break_location",
+  "elevation",
+  "slope_percent",
+  "geojson",
+  "soil_section",
+  "soil_texture",
+  "soil_ph",
+  "organic_matter_percent",
+  "column_break_soil",
+  "soil_depth",
+  "drainage_class",
+  "land_capability_class",
+  "irrigation_section",
+  "irrigation_type",
+  "irrigation_source",
+  "column_break_irrigation",
+  "has_drip_irrigation",
+  "has_sprinkler",
+  "water_availability",
+  "infrastructure_section",
+  "has_fencing",
+  "has_windbreak",
+  "has_access_road",
+  "column_break_infra",
+  "has_storage",
+  "has_power_supply",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "default": "PLOT-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "PLOT-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plot_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plot Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plot_code",
+   "fieldtype": "Data",
+   "label": "Plot Code"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nPlanted\nFallow\nHarvesting\nUnder Preparation\nReserved\nInactive"
+  },
+  {
+   "fieldname": "current_crop",
+   "fieldtype": "Link",
+   "label": "Current Crop",
+   "options": "Crop",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_crop_cycle",
+   "fieldtype": "Link",
+   "label": "Current Crop Cycle",
+   "options": "Crop Cycle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "area_section",
+   "fieldtype": "Section Break",
+   "label": "Area & Dimensions"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Area",
+   "reqd": 1
+  },
+  {
+   "default": "Hectare",
+   "fieldname": "area_uom",
+   "fieldtype": "Link",
+   "label": "Area UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_area",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "perimeter",
+   "fieldtype": "Float",
+   "label": "Perimeter"
+  },
+  {
+   "default": "Metre",
+   "fieldname": "perimeter_uom",
+   "fieldtype": "Link",
+   "label": "Perimeter UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "GPS Location"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Center Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Center Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_location",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "elevation",
+   "fieldtype": "Float",
+   "label": "Elevation (meters)"
+  },
+  {
+   "fieldname": "slope_percent",
+   "fieldtype": "Percent",
+   "label": "Slope %"
+  },
+  {
+   "fieldname": "geojson",
+   "fieldtype": "Geolocation",
+   "label": "Plot Boundary"
+  },
+  {
+   "fieldname": "soil_section",
+   "fieldtype": "Section Break",
+   "label": "Soil Characteristics"
+  },
+  {
+   "fieldname": "soil_texture",
+   "fieldtype": "Link",
+   "label": "Soil Texture",
+   "options": "Soil Texture"
+  },
+  {
+   "fieldname": "soil_ph",
+   "fieldtype": "Float",
+   "label": "Soil pH",
+   "precision": "1"
+  },
+  {
+   "fieldname": "organic_matter_percent",
+   "fieldtype": "Percent",
+   "label": "Organic Matter %"
+  },
+  {
+   "fieldname": "column_break_soil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "soil_depth",
+   "fieldtype": "Float",
+   "label": "Soil Depth (cm)"
+  },
+  {
+   "fieldname": "drainage_class",
+   "fieldtype": "Select",
+   "label": "Drainage Class",
+   "options": "\nExcessive\nWell Drained\nModerately Well\nSomewhat Poorly\nPoorly Drained\nVery Poorly"
+  },
+  {
+   "fieldname": "land_capability_class",
+   "fieldtype": "Select",
+   "label": "Land Capability Class",
+   "options": "\nClass I - Prime\nClass II - Good\nClass III - Moderate\nClass IV - Limited\nClass V - Unsuitable for Cultivation\nClass VI - Grazing/Forestry\nClass VII - Severe Limitations\nClass VIII - Non-Agricultural"
+  },
+  {
+   "fieldname": "irrigation_section",
+   "fieldtype": "Section Break",
+   "label": "Irrigation"
+  },
+  {
+   "fieldname": "irrigation_type",
+   "fieldtype": "Select",
+   "label": "Irrigation Type",
+   "options": "\nRainfed\nFurrow\nFlood\nDrip\nSprinkler\nCenter Pivot\nSubsurface"
+  },
+  {
+   "fieldname": "irrigation_source",
+   "fieldtype": "Select",
+   "label": "Water Source",
+   "options": "\nBorewell\nCanal\nRiver\nPond\nReservoir\nRainwater Harvesting\nMunicipal"
+  },
+  {
+   "fieldname": "column_break_irrigation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_drip_irrigation",
+   "fieldtype": "Check",
+   "label": "Has Drip Irrigation"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_sprinkler",
+   "fieldtype": "Check",
+   "label": "Has Sprinkler System"
+  },
+  {
+   "fieldname": "water_availability",
+   "fieldtype": "Select",
+   "label": "Water Availability",
+   "options": "\nYear-round\nSeasonal\nLimited\nIrregular"
+  },
+  {
+   "fieldname": "infrastructure_section",
+   "fieldtype": "Section Break",
+   "label": "Infrastructure"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_fencing",
+   "fieldtype": "Check",
+   "label": "Has Fencing"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_windbreak",
+   "fieldtype": "Check",
+   "label": "Has Windbreak"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_access_road",
+   "fieldtype": "Check",
+   "label": "Has Access Road"
+  },
+  {
+   "fieldname": "column_break_infra",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_storage",
+   "fieldtype": "Check",
+   "label": "Has Storage Facility"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_power_supply",
+   "fieldtype": "Check",
+   "label": "Has Power Supply"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Plot",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "plot_name",
+ "track_changes": 1
+}

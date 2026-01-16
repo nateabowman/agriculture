@@ -1,0 +1,258 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:grade_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "grade_name",
+  "grade_code",
+  "produce_type",
+  "column_break_basic",
+  "is_default",
+  "price_multiplier",
+  "description",
+  "criteria_section",
+  "size_min",
+  "size_max",
+  "size_uom",
+  "column_break_size",
+  "weight_min",
+  "weight_max",
+  "weight_uom",
+  "quality_section",
+  "color_requirements",
+  "shape_requirements",
+  "column_break_quality",
+  "defect_tolerance_percent",
+  "moisture_min",
+  "moisture_max",
+  "maturity_section",
+  "maturity_level",
+  "ripeness_indicator",
+  "brix_min",
+  "column_break_maturity",
+  "firmness_min",
+  "shelf_life_days",
+  "certification_section",
+  "requires_certification",
+  "certification_body"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Grade Information"
+  },
+  {
+   "fieldname": "grade_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Grade Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "grade_code",
+   "fieldtype": "Data",
+   "label": "Grade Code"
+  },
+  {
+   "fieldname": "produce_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Produce Type",
+   "options": "\nFruits\nVegetables\nGrains\nPulses\nOilseeds\nSpices\nDairy\nMeat\nEggs\nUniversal"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Is Default Grade"
+  },
+  {
+   "default": "1",
+   "description": "1.0 = standard price, 1.2 = 20% premium, 0.8 = 20% discount",
+   "fieldname": "price_multiplier",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Price Multiplier"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "criteria_section",
+   "fieldtype": "Section Break",
+   "label": "Size Criteria"
+  },
+  {
+   "fieldname": "size_min",
+   "fieldtype": "Float",
+   "label": "Minimum Size"
+  },
+  {
+   "fieldname": "size_max",
+   "fieldtype": "Float",
+   "label": "Maximum Size"
+  },
+  {
+   "fieldname": "size_uom",
+   "fieldtype": "Data",
+   "label": "Size UOM (mm, cm)"
+  },
+  {
+   "fieldname": "column_break_size",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight_min",
+   "fieldtype": "Float",
+   "label": "Minimum Weight (g)"
+  },
+  {
+   "fieldname": "weight_max",
+   "fieldtype": "Float",
+   "label": "Maximum Weight (g)"
+  },
+  {
+   "fieldname": "weight_uom",
+   "fieldtype": "Link",
+   "label": "Weight UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "quality_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Criteria"
+  },
+  {
+   "fieldname": "color_requirements",
+   "fieldtype": "Data",
+   "label": "Color Requirements"
+  },
+  {
+   "fieldname": "shape_requirements",
+   "fieldtype": "Data",
+   "label": "Shape Requirements"
+  },
+  {
+   "fieldname": "column_break_quality",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defect_tolerance_percent",
+   "fieldtype": "Percent",
+   "label": "Defect Tolerance %"
+  },
+  {
+   "fieldname": "moisture_min",
+   "fieldtype": "Percent",
+   "label": "Moisture Min %"
+  },
+  {
+   "fieldname": "moisture_max",
+   "fieldtype": "Percent",
+   "label": "Moisture Max %"
+  },
+  {
+   "fieldname": "maturity_section",
+   "fieldtype": "Section Break",
+   "label": "Maturity Criteria"
+  },
+  {
+   "fieldname": "maturity_level",
+   "fieldtype": "Select",
+   "label": "Maturity Level",
+   "options": "\nImmature\nMature Green\nTurning\nRipe\nOverripe"
+  },
+  {
+   "fieldname": "ripeness_indicator",
+   "fieldtype": "Data",
+   "label": "Ripeness Indicator"
+  },
+  {
+   "fieldname": "brix_min",
+   "fieldtype": "Float",
+   "label": "Brix (Sugar) Minimum"
+  },
+  {
+   "fieldname": "column_break_maturity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "firmness_min",
+   "fieldtype": "Float",
+   "label": "Firmness Minimum"
+  },
+  {
+   "fieldname": "shelf_life_days",
+   "fieldtype": "Int",
+   "label": "Expected Shelf Life (days)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "certification_section",
+   "fieldtype": "Section Break",
+   "label": "Certification"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_certification",
+   "fieldtype": "Check",
+   "label": "Requires Certification"
+  },
+  {
+   "depends_on": "requires_certification",
+   "fieldname": "certification_body",
+   "fieldtype": "Data",
+   "label": "Certification Body"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Produce Grading",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

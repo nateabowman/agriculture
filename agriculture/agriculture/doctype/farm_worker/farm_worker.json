@@ -1,0 +1,333 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "worker_name",
+  "employee",
+  "user",
+  "column_break_basic",
+  "status",
+  "farm",
+  "primary_role",
+  "contact_section",
+  "phone",
+  "email",
+  "column_break_contact",
+  "address",
+  "emergency_contact",
+  "employment_section",
+  "worker_type",
+  "employment_status",
+  "joining_date",
+  "column_break_emp",
+  "contract_end_date",
+  "supervisor",
+  "team",
+  "skills_section",
+  "skills",
+  "certifications",
+  "column_break_skills",
+  "experience_years",
+  "languages",
+  "payment_section",
+  "payment_type",
+  "daily_rate",
+  "hourly_rate",
+  "column_break_payment",
+  "piece_rate_enabled",
+  "bank_account",
+  "mobile_payment_number",
+  "documents_section",
+  "id_number",
+  "id_type",
+  "column_break_docs",
+  "id_document",
+  "photo",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "default": "FW-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FW-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "worker_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Worker Name",
+   "reqd": 1
+  },
+  {
+   "description": "Link to HRMS Employee if available",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee (HRMS)",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User Account",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nOn Leave\nSuspended\nTerminated\nSeasonal - Available\nSeasonal - Unavailable"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Primary Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "primary_role",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Primary Role",
+   "options": "\nField Worker\nTractor Operator\nIrrigation Technician\nSupervisor\nHarvester\nPacker\nSprayer\nLivestock Handler\nMilker\nGeneral Laborer\nSecurity\nDriver"
+  },
+  {
+   "fieldname": "contact_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_contact",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Data",
+   "label": "Emergency Contact"
+  },
+  {
+   "fieldname": "employment_section",
+   "fieldtype": "Section Break",
+   "label": "Employment Details"
+  },
+  {
+   "fieldname": "worker_type",
+   "fieldtype": "Select",
+   "label": "Worker Type",
+   "options": "\nPermanent\nContract\nSeasonal\nDaily Wage\nPiece Rate"
+  },
+  {
+   "fieldname": "employment_status",
+   "fieldtype": "Select",
+   "label": "Employment Status",
+   "options": "\nFull-time\nPart-time\nCasual"
+  },
+  {
+   "fieldname": "joining_date",
+   "fieldtype": "Date",
+   "label": "Joining Date"
+  },
+  {
+   "fieldname": "column_break_emp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "Contract End Date"
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "label": "Supervisor",
+   "options": "Farm Worker"
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Data",
+   "label": "Team/Gang"
+  },
+  {
+   "fieldname": "skills_section",
+   "fieldtype": "Section Break",
+   "label": "Skills & Experience"
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Small Text",
+   "label": "Skills"
+  },
+  {
+   "fieldname": "certifications",
+   "fieldtype": "Small Text",
+   "label": "Certifications"
+  },
+  {
+   "fieldname": "column_break_skills",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "experience_years",
+   "fieldtype": "Int",
+   "label": "Years of Experience"
+  },
+  {
+   "fieldname": "languages",
+   "fieldtype": "Data",
+   "label": "Languages"
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Information"
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "\nMonthly Salary\nDaily Wage\nHourly Wage\nPiece Rate"
+  },
+  {
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rate"
+  },
+  {
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate"
+  },
+  {
+   "fieldname": "column_break_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "piece_rate_enabled",
+   "fieldtype": "Check",
+   "label": "Piece Rate Enabled"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Data",
+   "label": "Bank Account"
+  },
+  {
+   "fieldname": "mobile_payment_number",
+   "fieldtype": "Data",
+   "label": "Mobile Payment Number"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "documents_section",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "id_type",
+   "fieldtype": "Select",
+   "label": "ID Type",
+   "options": "\nNational ID\nPassport\nDriver's License\nVoter ID\nOther"
+  },
+  {
+   "fieldname": "column_break_docs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_document",
+   "fieldtype": "Attach",
+   "label": "ID Document"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Farm Worker",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "worker_name",
+ "track_changes": 1
+}

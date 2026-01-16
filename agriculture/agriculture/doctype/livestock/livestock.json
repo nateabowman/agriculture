@@ -1,0 +1,446 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "animal_name",
+  "livestock_type",
+  "breed",
+  "column_break_basic",
+  "status",
+  "farm",
+  "location",
+  "identification_section",
+  "tag_number",
+  "rfid_tag",
+  "ear_tag",
+  "column_break_id",
+  "brand_mark",
+  "registration_number",
+  "image",
+  "batch_section",
+  "is_batch",
+  "batch_quantity",
+  "column_break_batch",
+  "batch_weight",
+  "birth_section",
+  "birth_date",
+  "age_months",
+  "gender",
+  "column_break_birth",
+  "birth_weight",
+  "dam",
+  "sire",
+  "physical_section",
+  "current_weight",
+  "weight_uom",
+  "last_weighed_date",
+  "column_break_physical",
+  "color",
+  "distinguishing_marks",
+  "health_section",
+  "health_status",
+  "last_checkup_date",
+  "next_checkup_date",
+  "column_break_health",
+  "is_pregnant",
+  "expected_delivery_date",
+  "vaccination_status",
+  "acquisition_section",
+  "acquisition_type",
+  "acquisition_date",
+  "acquisition_cost",
+  "column_break_acq",
+  "supplier",
+  "source_farm",
+  "disposal_section",
+  "disposal_type",
+  "disposal_date",
+  "column_break_disposal",
+  "sale_price",
+  "buyer",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "default": "LSK-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "LSK-.YYYY.-\nCATTLE-.YYYY.-\nPOULTRY-.YYYY.-\nGOAT-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "animal_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name/Identifier"
+  },
+  {
+   "fieldname": "livestock_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Livestock Type",
+   "options": "Livestock Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "breed",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Breed"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nSold\nDeceased\nCulled\nTransferred\nLost\nQuarantined"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location/Pen/Paddock"
+  },
+  {
+   "fieldname": "identification_section",
+   "fieldtype": "Section Break",
+   "label": "Identification"
+  },
+  {
+   "fieldname": "tag_number",
+   "fieldtype": "Data",
+   "label": "Tag Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "rfid_tag",
+   "fieldtype": "Data",
+   "label": "RFID Tag"
+  },
+  {
+   "fieldname": "ear_tag",
+   "fieldtype": "Data",
+   "label": "Ear Tag"
+  },
+  {
+   "fieldname": "column_break_id",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brand_mark",
+   "fieldtype": "Data",
+   "label": "Brand Mark"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration Number"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "batch_section",
+   "fieldtype": "Section Break",
+   "label": "Batch Information"
+  },
+  {
+   "default": "0",
+   "description": "Track as a batch instead of individual animal",
+   "fieldname": "is_batch",
+   "fieldtype": "Check",
+   "label": "Is Batch"
+  },
+  {
+   "depends_on": "is_batch",
+   "fieldname": "batch_quantity",
+   "fieldtype": "Int",
+   "label": "Batch Quantity"
+  },
+  {
+   "fieldname": "column_break_batch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "is_batch",
+   "fieldname": "batch_weight",
+   "fieldtype": "Float",
+   "label": "Total Batch Weight"
+  },
+  {
+   "fieldname": "birth_section",
+   "fieldtype": "Section Break",
+   "label": "Birth Information"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Birth Date"
+  },
+  {
+   "fieldname": "age_months",
+   "fieldtype": "Int",
+   "label": "Age (Months)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale\nUnknown\nMixed (Batch)"
+  },
+  {
+   "fieldname": "column_break_birth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "birth_weight",
+   "fieldtype": "Float",
+   "label": "Birth Weight"
+  },
+  {
+   "fieldname": "dam",
+   "fieldtype": "Link",
+   "label": "Dam (Mother)",
+   "options": "Livestock"
+  },
+  {
+   "fieldname": "sire",
+   "fieldtype": "Link",
+   "label": "Sire (Father)",
+   "options": "Livestock"
+  },
+  {
+   "fieldname": "physical_section",
+   "fieldtype": "Section Break",
+   "label": "Physical Characteristics"
+  },
+  {
+   "fieldname": "current_weight",
+   "fieldtype": "Float",
+   "label": "Current Weight"
+  },
+  {
+   "default": "Kg",
+   "fieldname": "weight_uom",
+   "fieldtype": "Link",
+   "label": "Weight UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "last_weighed_date",
+   "fieldtype": "Date",
+   "label": "Last Weighed Date"
+  },
+  {
+   "fieldname": "column_break_physical",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color/Pattern"
+  },
+  {
+   "fieldname": "distinguishing_marks",
+   "fieldtype": "Small Text",
+   "label": "Distinguishing Marks"
+  },
+  {
+   "fieldname": "health_section",
+   "fieldtype": "Section Break",
+   "label": "Health"
+  },
+  {
+   "default": "Healthy",
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Health Status",
+   "options": "Healthy\nSick\nUnder Treatment\nRecovering\nQuarantined\nCritical"
+  },
+  {
+   "fieldname": "last_checkup_date",
+   "fieldtype": "Date",
+   "label": "Last Checkup Date"
+  },
+  {
+   "fieldname": "next_checkup_date",
+   "fieldtype": "Date",
+   "label": "Next Checkup Date"
+  },
+  {
+   "fieldname": "column_break_health",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.gender=='Female'",
+   "fieldname": "is_pregnant",
+   "fieldtype": "Check",
+   "label": "Is Pregnant"
+  },
+  {
+   "depends_on": "is_pregnant",
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fieldname": "vaccination_status",
+   "fieldtype": "Select",
+   "label": "Vaccination Status",
+   "options": "\nUp to Date\nOverdue\nPending\nExempt"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "acquisition_section",
+   "fieldtype": "Section Break",
+   "label": "Acquisition"
+  },
+  {
+   "fieldname": "acquisition_type",
+   "fieldtype": "Select",
+   "label": "Acquisition Type",
+   "options": "\nBorn on Farm\nPurchased\nGifted\nTransferred In\nLeased"
+  },
+  {
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Acquisition Date"
+  },
+  {
+   "fieldname": "acquisition_cost",
+   "fieldtype": "Currency",
+   "label": "Acquisition Cost"
+  },
+  {
+   "fieldname": "column_break_acq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "source_farm",
+   "fieldtype": "Data",
+   "label": "Source Farm"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:['Sold','Deceased','Culled','Transferred','Lost'].includes(doc.status)",
+   "fieldname": "disposal_section",
+   "fieldtype": "Section Break",
+   "label": "Disposal"
+  },
+  {
+   "fieldname": "disposal_type",
+   "fieldtype": "Select",
+   "label": "Disposal Type",
+   "options": "\nSold\nSlaughtered\nDied\nCulled\nTransferred Out\nLost/Stolen"
+  },
+  {
+   "fieldname": "disposal_date",
+   "fieldtype": "Date",
+   "label": "Disposal Date"
+  },
+  {
+   "fieldname": "column_break_disposal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sale_price",
+   "fieldtype": "Currency",
+   "label": "Sale Price"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Livestock",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "animal_name",
+ "track_changes": 1
+}

@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "device_name",
+  "device_type",
+  "manufacturer",
+  "column_break_basic",
+  "status",
+  "farm",
+  "plot",
+  "serial_number",
+  "location_section",
+  "latitude",
+  "longitude",
+  "column_break_loc",
+  "installation_location",
+  "installation_date",
+  "configuration_section",
+  "measurement_parameter",
+  "measurement_unit",
+  "reading_interval_minutes",
+  "column_break_config",
+  "min_threshold",
+  "max_threshold",
+  "alert_enabled",
+  "connectivity_section",
+  "connectivity_type",
+  "api_endpoint",
+  "api_key",
+  "column_break_conn",
+  "last_communication",
+  "battery_level",
+  "signal_strength",
+  "calibration_section",
+  "last_calibration_date",
+  "next_calibration_date",
+  "column_break_calib",
+  "calibration_notes",
+  "maintenance_section",
+  "last_maintenance_date",
+  "maintenance_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Device Information"
+  },
+  {
+   "default": "SENSOR-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SENSOR-.YYYY.-\nWS-.YYYY.-\nSM-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "device_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "device_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Device Type",
+   "options": "\nWeather Station\nSoil Moisture Sensor\nSoil Temperature Sensor\nSoil pH Sensor\nAir Temperature Sensor\nHumidity Sensor\nRain Gauge\nWind Sensor\nLight Sensor\nWater Level Sensor\nWater Flow Meter\nGPS Tracker\nMulti-Parameter",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer/Brand"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nMaintenance\nFaulty\nOffline"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Plot",
+   "options": "Plot"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_loc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "installation_location",
+   "fieldtype": "Data",
+   "label": "Installation Location Description"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Configuration"
+  },
+  {
+   "fieldname": "measurement_parameter",
+   "fieldtype": "Select",
+   "label": "Primary Measurement",
+   "options": "\nSoil Moisture %\nSoil Temperature °C\nSoil pH\nAir Temperature °C\nHumidity %\nRainfall mm\nWind Speed m/s\nWind Direction\nLight Intensity lux\nWater Level cm\nWater Flow L/min\nElectrical Conductivity"
+  },
+  {
+   "fieldname": "measurement_unit",
+   "fieldtype": "Data",
+   "label": "Measurement Unit"
+  },
+  {
+   "default": "15",
+   "fieldname": "reading_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Reading Interval (minutes)"
+  },
+  {
+   "fieldname": "column_break_config",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_threshold",
+   "fieldtype": "Float",
+   "label": "Minimum Alert Threshold"
+  },
+  {
+   "fieldname": "max_threshold",
+   "fieldtype": "Float",
+   "label": "Maximum Alert Threshold"
+  },
+  {
+   "default": "1",
+   "fieldname": "alert_enabled",
+   "fieldtype": "Check",
+   "label": "Alerts Enabled"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "connectivity_section",
+   "fieldtype": "Section Break",
+   "label": "Connectivity"
+  },
+  {
+   "fieldname": "connectivity_type",
+   "fieldtype": "Select",
+   "label": "Connectivity Type",
+   "options": "\nWiFi\nLoRa\nCellular\nBluetooth\nZigbee\nSigfox\nNB-IoT"
+  },
+  {
+   "fieldname": "api_endpoint",
+   "fieldtype": "Data",
+   "label": "API Endpoint"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+  {
+   "fieldname": "column_break_conn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_communication",
+   "fieldtype": "Datetime",
+   "label": "Last Communication",
+   "read_only": 1
+  },
+  {
+   "fieldname": "battery_level",
+   "fieldtype": "Percent",
+   "label": "Battery Level"
+  },
+  {
+   "fieldname": "signal_strength",
+   "fieldtype": "Int",
+   "label": "Signal Strength (dBm)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "calibration_section",
+   "fieldtype": "Section Break",
+   "label": "Calibration"
+  },
+  {
+   "fieldname": "last_calibration_date",
+   "fieldtype": "Date",
+   "label": "Last Calibration Date"
+  },
+  {
+   "fieldname": "next_calibration_date",
+   "fieldtype": "Date",
+   "label": "Next Calibration Due"
+  },
+  {
+   "fieldname": "column_break_calib",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "calibration_notes",
+   "fieldtype": "Small Text",
+   "label": "Calibration Notes"
+  },
+  {
+   "fieldname": "maintenance_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "last_maintenance_date",
+   "fieldtype": "Date",
+   "label": "Last Maintenance"
+  },
+  {
+   "fieldname": "maintenance_notes",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Sensor Device",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "device_name",
+ "track_changes": 1
+}

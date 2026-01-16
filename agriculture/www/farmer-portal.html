@@ -1,0 +1,322 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Farmer Portal{% endblock %}
+
+{% block page_content %}
+<div class="farmer-portal">
+	<div class="portal-header">
+		<h1>{{ _("Farmer Portal") }}</h1>
+		<p class="text-muted">{{ _("Welcome to your agricultural management dashboard") }}</p>
+	</div>
+
+	{% if frappe.session.user != "Guest" %}
+	<div class="row portal-stats">
+		<div class="col-md-3">
+			<div class="stat-card">
+				<div class="stat-icon">🌾</div>
+				<div class="stat-value" id="active-cycles">-</div>
+				<div class="stat-label">{{ _("Active Crop Cycles") }}</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="stat-card">
+				<div class="stat-icon">📋</div>
+				<div class="stat-value" id="pending-tasks">-</div>
+				<div class="stat-label">{{ _("Pending Tasks") }}</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="stat-card">
+				<div class="stat-icon">🐄</div>
+				<div class="stat-value" id="livestock-count">-</div>
+				<div class="stat-label">{{ _("Livestock") }}</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="stat-card">
+				<div class="stat-icon">📊</div>
+				<div class="stat-value" id="harvest-total">-</div>
+				<div class="stat-label">{{ _("This Season Harvest") }}</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row portal-sections">
+		<div class="col-md-6">
+			<div class="portal-section">
+				<h3>{{ _("Quick Actions") }}</h3>
+				<div class="quick-actions">
+					<a href="/app/harvest-entry/new" class="action-btn">
+						<span class="icon">📥</span>
+						{{ _("Record Harvest") }}
+					</a>
+					<a href="/app/field-task/new" class="action-btn">
+						<span class="icon">✅</span>
+						{{ _("Create Task") }}
+					</a>
+					<a href="/app/livestock-event/new" class="action-btn">
+						<span class="icon">🏥</span>
+						{{ _("Record Livestock Event") }}
+					</a>
+					<a href="/app/sensor-reading" class="action-btn">
+						<span class="icon">📡</span>
+						{{ _("View Sensor Data") }}
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="portal-section">
+				<h3>{{ _("Weather Overview") }}</h3>
+				<div id="weather-widget">
+					<p class="text-muted">{{ _("Loading weather data...") }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="portal-section">
+				<h3>{{ _("Recent Crop Cycles") }}</h3>
+				<div id="crop-cycles-list">
+					<p class="text-muted">{{ _("Loading...") }}</p>
+				</div>
+				<a href="/app/crop-cycle" class="view-all">{{ _("View All") }} →</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="portal-section">
+				<h3>{{ _("Upcoming Tasks") }}</h3>
+				<div id="tasks-list">
+					<p class="text-muted">{{ _("Loading...") }}</p>
+				</div>
+				<a href="/app/field-task" class="view-all">{{ _("View All") }} →</a>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="login-prompt">
+		<h3>{{ _("Please log in to access the Farmer Portal") }}</h3>
+		<a href="/login" class="btn btn-primary btn-lg">{{ _("Log In") }}</a>
+	</div>
+	{% endif %}
+</div>
+
+<style>
+.farmer-portal {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.portal-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.portal-header h1 {
+	color: #2e7d32;
+	font-weight: 700;
+}
+
+.portal-stats {
+	margin-bottom: 2rem;
+}
+
+.stat-card {
+	background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+	border-radius: 12px;
+	padding: 1.5rem;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	transition: transform 0.2s;
+}
+
+.stat-card:hover {
+	transform: translateY(-5px);
+}
+
+.stat-icon {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.stat-value {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #1b5e20;
+}
+
+.stat-label {
+	color: #558b2f;
+	font-size: 0.9rem;
+}
+
+.portal-section {
+	background: white;
+	border-radius: 12px;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.portal-section h3 {
+	color: #2e7d32;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 2px solid #e8f5e9;
+}
+
+.quick-actions {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.action-btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	background: #f1f8e9;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #33691e;
+	transition: background 0.2s;
+}
+
+.action-btn:hover {
+	background: #dcedc8;
+	text-decoration: none;
+	color: #1b5e20;
+}
+
+.action-btn .icon {
+	font-size: 1.5rem;
+}
+
+.view-all {
+	display: inline-block;
+	margin-top: 1rem;
+	color: #2e7d32;
+	text-decoration: none;
+}
+
+.view-all:hover {
+	text-decoration: underline;
+}
+
+.login-prompt {
+	text-align: center;
+	padding: 4rem 2rem;
+	background: #f5f5f5;
+	border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+	.quick-actions {
+		grid-template-columns: 1fr;
+	}
+}
+</style>
+
+<script>
+frappe.ready(function() {
+	if (frappe.session.user !== "Guest") {
+		loadPortalData();
+	}
+});
+
+function loadPortalData() {
+	// Load active crop cycles count
+	frappe.call({
+		method: "frappe.client.get_count",
+		args: {
+			doctype: "Crop Cycle",
+			filters: {status: ["in", ["Planted", "Growing", "Flowering", "Fruiting"]]}
+		},
+		callback: function(r) {
+			$("#active-cycles").text(r.message || 0);
+		}
+	});
+
+	// Load pending tasks count
+	frappe.call({
+		method: "frappe.client.get_count",
+		args: {
+			doctype: "Field Task",
+			filters: {status: ["in", ["Pending", "Assigned"]]}
+		},
+		callback: function(r) {
+			$("#pending-tasks").text(r.message || 0);
+		}
+	});
+
+	// Load livestock count
+	frappe.call({
+		method: "frappe.client.get_count",
+		args: {
+			doctype: "Livestock",
+			filters: {status: "Active"}
+		},
+		callback: function(r) {
+			$("#livestock-count").text(r.message || 0);
+		}
+	});
+
+	// Load recent crop cycles
+	frappe.call({
+		method: "frappe.client.get_list",
+		args: {
+			doctype: "Crop Cycle",
+			fields: ["name", "title", "crop", "status", "start_date"],
+			limit: 5,
+			order_by: "creation desc"
+		},
+		callback: function(r) {
+			if (r.message && r.message.length) {
+				var html = '<ul class="list-unstyled">';
+				r.message.forEach(function(item) {
+					html += '<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">';
+					html += '<a href="/app/crop-cycle/' + item.name + '">' + item.title + '</a>';
+					html += ' <span class="badge" style="background: #c8e6c9; color: #2e7d32;">' + item.status + '</span>';
+					html += '</li>';
+				});
+				html += '</ul>';
+				$("#crop-cycles-list").html(html);
+			} else {
+				$("#crop-cycles-list").html('<p class="text-muted">No crop cycles found</p>');
+			}
+		}
+	});
+
+	// Load upcoming tasks
+	frappe.call({
+		method: "frappe.client.get_list",
+		args: {
+			doctype: "Field Task",
+			fields: ["name", "task_name", "task_type", "scheduled_date", "status"],
+			filters: {status: ["in", ["Pending", "Assigned", "In Progress"]]},
+			limit: 5,
+			order_by: "scheduled_date asc"
+		},
+		callback: function(r) {
+			if (r.message && r.message.length) {
+				var html = '<ul class="list-unstyled">';
+				r.message.forEach(function(item) {
+					html += '<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">';
+					html += '<a href="/app/field-task/' + item.name + '">' + item.task_name + '</a>';
+					html += ' <small class="text-muted">' + (item.scheduled_date || 'No date') + '</small>';
+					html += '</li>';
+				});
+				html += '</ul>';
+				$("#tasks-list").html(html);
+			} else {
+				$("#tasks-list").html('<p class="text-muted">No pending tasks</p>');
+			}
+		}
+	});
+}
+</script>
+{% endblock %}

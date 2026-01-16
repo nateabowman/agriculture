@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sensor_device",
+  "farm",
+  "plot",
+  "reading_datetime",
+  "column_break",
+  "reading_value",
+  "reading_unit",
+  "data_quality",
+  "additional_section",
+  "secondary_value",
+  "secondary_parameter",
+  "column_break_add",
+  "raw_data",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "sensor_device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sensor Device",
+   "options": "Sensor Device",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sensor_device.farm",
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sensor_device.plot",
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Plot",
+   "options": "Plot",
+   "read_only": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "reading_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Reading Date/Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reading_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Reading Value",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sensor_device.measurement_unit",
+   "fieldname": "reading_unit",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_quality",
+   "fieldtype": "Select",
+   "label": "Data Quality",
+   "options": "\nGood\nSuspect\nInvalid"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "additional_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Data"
+  },
+  {
+   "fieldname": "secondary_value",
+   "fieldtype": "Float",
+   "label": "Secondary Value"
+  },
+  {
+   "fieldname": "secondary_parameter",
+   "fieldtype": "Data",
+   "label": "Secondary Parameter"
+  },
+  {
+   "fieldname": "column_break_add",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_data",
+   "fieldtype": "Code",
+   "label": "Raw Data (JSON)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Sensor Reading",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "reading_datetime",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

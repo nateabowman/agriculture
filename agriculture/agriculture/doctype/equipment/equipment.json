@@ -1,0 +1,363 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "equipment_name",
+  "equipment_type",
+  "category",
+  "column_break_basic",
+  "status",
+  "farm",
+  "current_location",
+  "asset",
+  "details_section",
+  "manufacturer",
+  "model",
+  "serial_number",
+  "column_break_details",
+  "year_of_manufacture",
+  "purchase_date",
+  "purchase_price",
+  "specifications_section",
+  "power_source",
+  "horsepower",
+  "fuel_type",
+  "column_break_specs",
+  "capacity",
+  "capacity_uom",
+  "working_width",
+  "operational_section",
+  "hours_meter_reading",
+  "last_reading_date",
+  "avg_hours_per_day",
+  "column_break_ops",
+  "fuel_consumption_rate",
+  "daily_rental_rate",
+  "maintenance_section",
+  "maintenance_interval_hours",
+  "maintenance_interval_days",
+  "last_maintenance_date",
+  "column_break_maint",
+  "next_maintenance_date",
+  "total_maintenance_cost",
+  "insurance_section",
+  "insurance_company",
+  "insurance_policy_number",
+  "column_break_insurance",
+  "insurance_expiry_date",
+  "insurance_value",
+  "image_section",
+  "image",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "default": "EQP-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "EQP-.YYYY.-\nTRACTOR-.YYYY.-\nIMPL-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Equipment Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Equipment Type",
+   "options": "\nTractor\nHarvester\nPlanter\nSprayer\nIrrigation System\nPump\nGenerator\nTiller\nCultivator\nSeeder\nTrailer\nLoader\nMower\nBaler\nDrill\nSpreader\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "\nPrimary Equipment\nImplement/Attachment\nIrrigation\nHarvesting\nPost-Harvest\nLivestock Equipment\nTransport\nPower Equipment\nHand Tools"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nIn Use\nUnder Maintenance\nOut of Service\nRetired\nSold\nRented Out"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Linked Asset",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer/Brand"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year_of_manufacture",
+   "fieldtype": "Int",
+   "label": "Year of Manufacture"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "purchase_price",
+   "fieldtype": "Currency",
+   "label": "Purchase Price"
+  },
+  {
+   "fieldname": "specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Specifications"
+  },
+  {
+   "fieldname": "power_source",
+   "fieldtype": "Select",
+   "label": "Power Source",
+   "options": "\nDiesel\nPetrol\nElectric\nPTO\nManual\nSolar\nHybrid"
+  },
+  {
+   "fieldname": "horsepower",
+   "fieldtype": "Float",
+   "label": "Horsepower/Power Rating"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "\nDiesel\nPetrol\nElectric\nLPG\nNone"
+  },
+  {
+   "fieldname": "column_break_specs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Float",
+   "label": "Capacity"
+  },
+  {
+   "fieldname": "capacity_uom",
+   "fieldtype": "Link",
+   "label": "Capacity UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "working_width",
+   "fieldtype": "Float",
+   "label": "Working Width (meters)"
+  },
+  {
+   "fieldname": "operational_section",
+   "fieldtype": "Section Break",
+   "label": "Operational Data"
+  },
+  {
+   "fieldname": "hours_meter_reading",
+   "fieldtype": "Float",
+   "label": "Current Hours Meter"
+  },
+  {
+   "fieldname": "last_reading_date",
+   "fieldtype": "Date",
+   "label": "Last Reading Date"
+  },
+  {
+   "fieldname": "avg_hours_per_day",
+   "fieldtype": "Float",
+   "label": "Avg Hours per Day"
+  },
+  {
+   "fieldname": "column_break_ops",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fuel_consumption_rate",
+   "fieldtype": "Float",
+   "label": "Fuel Consumption (L/hr)"
+  },
+  {
+   "fieldname": "daily_rental_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rental Rate"
+  },
+  {
+   "fieldname": "maintenance_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "maintenance_interval_hours",
+   "fieldtype": "Int",
+   "label": "Service Interval (Hours)"
+  },
+  {
+   "fieldname": "maintenance_interval_days",
+   "fieldtype": "Int",
+   "label": "Service Interval (Days)"
+  },
+  {
+   "fieldname": "last_maintenance_date",
+   "fieldtype": "Date",
+   "label": "Last Maintenance Date"
+  },
+  {
+   "fieldname": "column_break_maint",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_maintenance_date",
+   "fieldtype": "Date",
+   "label": "Next Maintenance Due"
+  },
+  {
+   "fieldname": "total_maintenance_cost",
+   "fieldtype": "Currency",
+   "label": "Total Maintenance Cost",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Data",
+   "label": "Insurance Company"
+  },
+  {
+   "fieldname": "insurance_policy_number",
+   "fieldtype": "Data",
+   "label": "Policy Number"
+  },
+  {
+   "fieldname": "column_break_insurance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_expiry_date",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry Date"
+  },
+  {
+   "fieldname": "insurance_value",
+   "fieldtype": "Currency",
+   "label": "Insured Value"
+  },
+  {
+   "fieldname": "image_section",
+   "fieldtype": "Section Break",
+   "label": "Additional"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Equipment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "equipment_name",
+ "track_changes": 1
+}

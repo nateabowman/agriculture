@@ -1,0 +1,318 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "input_name",
+  "input_type",
+  "input_category",
+  "column_break_basic",
+  "item",
+  "status",
+  "manufacturer",
+  "details_section",
+  "description",
+  "active_ingredients",
+  "column_break_details",
+  "concentration",
+  "formulation",
+  "organic_certified",
+  "application_section",
+  "target_crops",
+  "application_method",
+  "application_rate",
+  "column_break_app",
+  "application_rate_uom",
+  "frequency",
+  "best_time_to_apply",
+  "safety_section",
+  "safety_precautions",
+  "pre_harvest_interval_days",
+  "column_break_safety",
+  "restricted_entry_interval",
+  "environmental_hazard",
+  "storage_section",
+  "storage_conditions",
+  "shelf_life_months",
+  "column_break_storage",
+  "min_storage_temp",
+  "max_storage_temp",
+  "regulatory_section",
+  "registration_number",
+  "approved_for_use",
+  "column_break_reg",
+  "expiry_date",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "default": "AGRI-INP-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "AGRI-INP-.YYYY.-\nSEED-.YYYY.-\nFERT-.YYYY.-\nPEST-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "input_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Input Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "input_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Input Type",
+   "options": "\nSeed\nFertilizer\nPesticide\nHerbicide\nFungicide\nInsecticide\nGrowth Regulator\nSoil Amendment\nAnimal Feed\nVeterinary Medicine\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "input_category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "\nOrganic\nChemical\nBiological\nMineral\nSynthetic"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Linked Item",
+   "options": "Item"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nDiscontinued\nRestricted"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "active_ingredients",
+   "fieldtype": "Small Text",
+   "label": "Active Ingredients"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "concentration",
+   "fieldtype": "Data",
+   "label": "Concentration"
+  },
+  {
+   "fieldname": "formulation",
+   "fieldtype": "Select",
+   "label": "Formulation",
+   "options": "\nGranular\nLiquid\nPowder\nEmulsion\nSuspension\nPellet\nDust\nSpray\nCoated Seed"
+  },
+  {
+   "default": "0",
+   "fieldname": "organic_certified",
+   "fieldtype": "Check",
+   "label": "Organic Certified"
+  },
+  {
+   "fieldname": "application_section",
+   "fieldtype": "Section Break",
+   "label": "Application"
+  },
+  {
+   "fieldname": "target_crops",
+   "fieldtype": "Small Text",
+   "label": "Target Crops"
+  },
+  {
+   "fieldname": "application_method",
+   "fieldtype": "Select",
+   "label": "Application Method",
+   "options": "\nFoliar Spray\nSoil Application\nSeed Treatment\nDrip Irrigation\nBroadcast\nBanding\nInjection\nDrench"
+  },
+  {
+   "fieldname": "application_rate",
+   "fieldtype": "Float",
+   "label": "Application Rate"
+  },
+  {
+   "fieldname": "column_break_app",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "application_rate_uom",
+   "fieldtype": "Data",
+   "label": "Rate UOM (e.g., kg/ha, ml/L)"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Data",
+   "label": "Application Frequency"
+  },
+  {
+   "fieldname": "best_time_to_apply",
+   "fieldtype": "Data",
+   "label": "Best Time to Apply"
+  },
+  {
+   "fieldname": "safety_section",
+   "fieldtype": "Section Break",
+   "label": "Safety Information"
+  },
+  {
+   "fieldname": "safety_precautions",
+   "fieldtype": "Text",
+   "label": "Safety Precautions"
+  },
+  {
+   "fieldname": "pre_harvest_interval_days",
+   "fieldtype": "Int",
+   "label": "Pre-Harvest Interval (Days)"
+  },
+  {
+   "fieldname": "column_break_safety",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "restricted_entry_interval",
+   "fieldtype": "Data",
+   "label": "Restricted Entry Interval"
+  },
+  {
+   "fieldname": "environmental_hazard",
+   "fieldtype": "Select",
+   "label": "Environmental Hazard Level",
+   "options": "\nLow\nModerate\nHigh\nVery High"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "storage_section",
+   "fieldtype": "Section Break",
+   "label": "Storage"
+  },
+  {
+   "fieldname": "storage_conditions",
+   "fieldtype": "Small Text",
+   "label": "Storage Conditions"
+  },
+  {
+   "fieldname": "shelf_life_months",
+   "fieldtype": "Int",
+   "label": "Shelf Life (Months)"
+  },
+  {
+   "fieldname": "column_break_storage",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_storage_temp",
+   "fieldtype": "Float",
+   "label": "Min Storage Temp (°C)"
+  },
+  {
+   "fieldname": "max_storage_temp",
+   "fieldtype": "Float",
+   "label": "Max Storage Temp (°C)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "regulatory_section",
+   "fieldtype": "Section Break",
+   "label": "Regulatory"
+  },
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "label": "Registration Number"
+  },
+  {
+   "default": "1",
+   "fieldname": "approved_for_use",
+   "fieldtype": "Check",
+   "label": "Approved for Use"
+  },
+  {
+   "fieldname": "column_break_reg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Registration Expiry Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Agricultural Input",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "input_name",
+ "track_changes": 1
+}

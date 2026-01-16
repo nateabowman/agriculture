@@ -1,0 +1,415 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "contract_title",
+  "contract_type",
+  "status",
+  "column_break_basic",
+  "customer",
+  "customer_name",
+  "lead",
+  "opportunity",
+  "farm_section",
+  "farm",
+  "plot",
+  "column_break_farm",
+  "farmer_name",
+  "farmer_contact",
+  "dates_section",
+  "contract_date",
+  "start_date",
+  "end_date",
+  "column_break_dates",
+  "delivery_start_date",
+  "delivery_end_date",
+  "crops_section",
+  "crops",
+  "terms_section",
+  "total_quantity",
+  "quantity_uom",
+  "price_per_unit",
+  "column_break_terms",
+  "total_value",
+  "price_basis",
+  "quality_requirements",
+  "payment_section",
+  "advance_percentage",
+  "advance_amount",
+  "column_break_payment",
+  "payment_terms",
+  "payment_mode",
+  "delivery_section",
+  "delivery_terms",
+  "delivery_location",
+  "column_break_delivery",
+  "transportation_by",
+  "packaging_requirements",
+  "compliance_section",
+  "organic_certification_required",
+  "quality_certification_required",
+  "column_break_compliance",
+  "inspection_clause",
+  "penalty_clause",
+  "documents_section",
+  "contract_document",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Information"
+  },
+  {
+   "default": "FC-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FC-.YYYY.-\nCONTRACT-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contract Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Contract Type",
+   "options": "\nPre-Season\nSpot Contract\nFutures\nProcessing Contract\nExport Contract\nOrganic Contract",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Approval\nActive\nIn Progress\nPartially Fulfilled\nFulfilled\nExpired\nCancelled\nDisputed"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer/Buyer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead (CRM)",
+   "options": "Lead"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity (CRM)",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "farm_section",
+   "fieldtype": "Section Break",
+   "label": "Farm Details"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Designated Plot",
+   "options": "Plot"
+  },
+  {
+   "fieldname": "column_break_farm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "farmer_name",
+   "fieldtype": "Data",
+   "label": "Farmer Name"
+  },
+  {
+   "fieldname": "farmer_contact",
+   "fieldtype": "Data",
+   "label": "Farmer Contact"
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Period"
+  },
+  {
+   "default": "Today",
+   "fieldname": "contract_date",
+   "fieldtype": "Date",
+   "label": "Contract Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Growing Season Start"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "Growing Season End"
+  },
+  {
+   "fieldname": "column_break_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivery_start_date",
+   "fieldtype": "Date",
+   "label": "Delivery Window Start"
+  },
+  {
+   "fieldname": "delivery_end_date",
+   "fieldtype": "Date",
+   "label": "Delivery Window End"
+  },
+  {
+   "fieldname": "crops_section",
+   "fieldtype": "Section Break",
+   "label": "Contracted Crops"
+  },
+  {
+   "fieldname": "crops",
+   "fieldtype": "Table",
+   "label": "Crops",
+   "options": "Farming Contract Crop"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Terms"
+  },
+  {
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Quantity"
+  },
+  {
+   "default": "Kg",
+   "fieldname": "quantity_uom",
+   "fieldtype": "Link",
+   "label": "Quantity UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "price_per_unit",
+   "fieldtype": "Currency",
+   "label": "Price per Unit"
+  },
+  {
+   "fieldname": "column_break_terms",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Contract Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_basis",
+   "fieldtype": "Select",
+   "label": "Price Basis",
+   "options": "\nFixed Price\nMarket Price + Premium\nMarket Price - Discount\nCost Plus\nMinimum Guarantee"
+  },
+  {
+   "fieldname": "quality_requirements",
+   "fieldtype": "Small Text",
+   "label": "Quality Requirements"
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "advance_percentage",
+   "fieldtype": "Percent",
+   "label": "Advance %"
+  },
+  {
+   "fieldname": "advance_amount",
+   "fieldtype": "Currency",
+   "label": "Advance Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Link",
+   "label": "Payment Terms Template",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "\nBank Transfer\nCheque\nCash\nMobile Payment\nLetter of Credit"
+  },
+  {
+   "fieldname": "delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Terms"
+  },
+  {
+   "fieldname": "delivery_terms",
+   "fieldtype": "Select",
+   "label": "Delivery Terms",
+   "options": "\nEx-Farm\nBuyer Pickup\nDelivered to Buyer\nDelivered to Warehouse\nFOB\nCIF"
+  },
+  {
+   "fieldname": "delivery_location",
+   "fieldtype": "Data",
+   "label": "Delivery Location"
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transportation_by",
+   "fieldtype": "Select",
+   "label": "Transportation By",
+   "options": "\nFarmer\nBuyer\nThird Party"
+  },
+  {
+   "fieldname": "packaging_requirements",
+   "fieldtype": "Small Text",
+   "label": "Packaging Requirements"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Quality"
+  },
+  {
+   "default": "0",
+   "fieldname": "organic_certification_required",
+   "fieldtype": "Check",
+   "label": "Organic Certification Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "quality_certification_required",
+   "fieldtype": "Check",
+   "label": "Quality Certification Required"
+  },
+  {
+   "fieldname": "column_break_compliance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_clause",
+   "fieldtype": "Small Text",
+   "label": "Inspection Clause"
+  },
+  {
+   "fieldname": "penalty_clause",
+   "fieldtype": "Small Text",
+   "label": "Penalty Clause"
+  },
+  {
+   "fieldname": "documents_section",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "contract_document",
+   "fieldtype": "Attach",
+   "label": "Contract Document"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Farming Contract",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "contract_title",
+ "track_changes": 1
+}

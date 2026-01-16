@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "harvest_date",
+  "harvest_time",
+  "column_break_basic",
+  "crop_cycle",
+  "farm",
+  "plot",
+  "crop",
+  "details_section",
+  "harvest_type",
+  "harvested_by",
+  "weather_conditions",
+  "column_break_details",
+  "labor_hours",
+  "equipment_used",
+  "produce_section",
+  "items",
+  "totals_section",
+  "total_quantity",
+  "total_uom",
+  "column_break_totals",
+  "total_value",
+  "quality_section",
+  "overall_quality_grade",
+  "moisture_content",
+  "column_break_quality",
+  "damage_percent",
+  "quality_notes",
+  "inventory_section",
+  "create_stock_entry",
+  "target_warehouse",
+  "stock_entry",
+  "column_break_inv",
+  "posting_date",
+  "posting_time",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Harvest Information"
+  },
+  {
+   "default": "HRV-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HRV-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "harvest_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Harvest Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "harvest_time",
+   "fieldtype": "Time",
+   "label": "Harvest Time"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "crop_cycle.farm",
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "crop_cycle.plot",
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Plot",
+   "options": "Plot",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "crop_cycle.crop",
+   "fieldname": "crop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop",
+   "options": "Crop",
+   "read_only": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Harvest Details"
+  },
+  {
+   "fieldname": "harvest_type",
+   "fieldtype": "Select",
+   "label": "Harvest Type",
+   "options": "\nFull Harvest\nPartial Harvest\nTest Harvest\nSalvage Harvest"
+  },
+  {
+   "fieldname": "harvested_by",
+   "fieldtype": "Link",
+   "label": "Harvested By",
+   "options": "User"
+  },
+  {
+   "fieldname": "weather_conditions",
+   "fieldtype": "Select",
+   "label": "Weather Conditions",
+   "options": "\nSunny\nCloudy\nPartly Cloudy\nRainy\nHumid\nDry"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "labor_hours",
+   "fieldtype": "Float",
+   "label": "Labor Hours"
+  },
+  {
+   "fieldname": "equipment_used",
+   "fieldtype": "Link",
+   "label": "Equipment Used",
+   "options": "Equipment"
+  },
+  {
+   "fieldname": "produce_section",
+   "fieldtype": "Section Break",
+   "label": "Harvested Produce"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Harvested Items",
+   "options": "Harvest Entry Detail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_value",
+   "fieldtype": "Currency",
+   "label": "Total Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Assessment"
+  },
+  {
+   "fieldname": "overall_quality_grade",
+   "fieldtype": "Select",
+   "label": "Overall Quality Grade",
+   "options": "\nGrade A - Premium\nGrade B - Standard\nGrade C - Economy\nReject\nMixed"
+  },
+  {
+   "fieldname": "moisture_content",
+   "fieldtype": "Percent",
+   "label": "Moisture Content %"
+  },
+  {
+   "fieldname": "column_break_quality",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "damage_percent",
+   "fieldtype": "Percent",
+   "label": "Damage %"
+  },
+  {
+   "fieldname": "quality_notes",
+   "fieldtype": "Small Text",
+   "label": "Quality Notes"
+  },
+  {
+   "fieldname": "inventory_section",
+   "fieldtype": "Section Break",
+   "label": "Inventory Integration"
+  },
+  {
+   "default": "1",
+   "fieldname": "create_stock_entry",
+   "fieldtype": "Check",
+   "label": "Create Stock Entry"
+  },
+  {
+   "depends_on": "create_stock_entry",
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_inv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Harvest Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "harvest_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

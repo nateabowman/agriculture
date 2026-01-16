@@ -1,6 +1,17 @@
 import frappe
 from frappe import _
-from erpnext.setup.utils import insert_record
+
+
+def insert_record(records):
+	"""Insert records into database. Compatible with Frappe v15."""
+	for record in records:
+		doc = frappe.new_doc(record.get("doctype"))
+		doc.update(record)
+		try:
+			doc.insert(ignore_permissions=True, ignore_if_duplicate=True)
+		except frappe.DuplicateEntryError:
+			pass
+
 
 def setup_agriculture():
 	if frappe.get_all('Agriculture Analysis Criteria'):
@@ -8,6 +19,7 @@ def setup_agriculture():
 		return
 	create_agriculture_data()
 	add_additional_permissions()
+
 
 def create_agriculture_data():
 	records = [

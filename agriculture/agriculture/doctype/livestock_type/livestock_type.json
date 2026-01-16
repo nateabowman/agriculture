@@ -1,0 +1,224 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:type_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type_name",
+  "category",
+  "scientific_name",
+  "column_break_basic",
+  "description",
+  "image",
+  "characteristics_section",
+  "average_lifespan_years",
+  "maturity_age_months",
+  "gestation_period_days",
+  "column_break_char",
+  "average_weight_kg",
+  "weight_uom",
+  "tracking_section",
+  "track_individually",
+  "enable_breeding",
+  "enable_milk_production",
+  "column_break_tracking",
+  "enable_egg_production",
+  "enable_wool_production",
+  "products_section",
+  "primary_product",
+  "secondary_products",
+  "column_break_products",
+  "byproducts",
+  "vaccination_section",
+  "recommended_vaccinations"
+ ],
+ "fields": [
+  {
+   "fieldname": "type_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "\nCattle\nPoultry\nGoats\nSheep\nPigs\nHorses\nDonkeys\nCamels\nRabbits\nFish\nBees\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scientific_name",
+   "fieldtype": "Data",
+   "label": "Scientific Name"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "characteristics_section",
+   "fieldtype": "Section Break",
+   "label": "Characteristics"
+  },
+  {
+   "fieldname": "average_lifespan_years",
+   "fieldtype": "Float",
+   "label": "Average Lifespan (Years)"
+  },
+  {
+   "fieldname": "maturity_age_months",
+   "fieldtype": "Int",
+   "label": "Maturity Age (Months)"
+  },
+  {
+   "fieldname": "gestation_period_days",
+   "fieldtype": "Int",
+   "label": "Gestation Period (Days)"
+  },
+  {
+   "fieldname": "column_break_char",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "average_weight_kg",
+   "fieldtype": "Float",
+   "label": "Average Adult Weight"
+  },
+  {
+   "default": "Kg",
+   "fieldname": "weight_uom",
+   "fieldtype": "Link",
+   "label": "Weight UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking Options"
+  },
+  {
+   "default": "1",
+   "description": "Track each animal individually vs batch tracking",
+   "fieldname": "track_individually",
+   "fieldtype": "Check",
+   "label": "Track Individually"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_breeding",
+   "fieldtype": "Check",
+   "label": "Enable Breeding Tracking"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_milk_production",
+   "fieldtype": "Check",
+   "label": "Enable Milk Production"
+  },
+  {
+   "fieldname": "column_break_tracking",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_egg_production",
+   "fieldtype": "Check",
+   "label": "Enable Egg Production"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_wool_production",
+   "fieldtype": "Check",
+   "label": "Enable Wool/Fiber Production"
+  },
+  {
+   "fieldname": "products_section",
+   "fieldtype": "Section Break",
+   "label": "Products"
+  },
+  {
+   "fieldname": "primary_product",
+   "fieldtype": "Link",
+   "label": "Primary Product Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "secondary_products",
+   "fieldtype": "Small Text",
+   "label": "Secondary Products"
+  },
+  {
+   "fieldname": "column_break_products",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "byproducts",
+   "fieldtype": "Small Text",
+   "label": "Byproducts"
+  },
+  {
+   "fieldname": "vaccination_section",
+   "fieldtype": "Section Break",
+   "label": "Health Management"
+  },
+  {
+   "fieldname": "recommended_vaccinations",
+   "fieldtype": "Text",
+   "label": "Recommended Vaccinations"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Livestock Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,290 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Agricultural Marketplace{% endblock %}
+
+{% block page_content %}
+<div class="marketplace">
+	<div class="marketplace-header">
+		<h1>{{ _("Agricultural Marketplace") }}</h1>
+		<p class="text-muted">{{ _("Browse and order fresh produce directly from farms") }}</p>
+	</div>
+
+	<div class="marketplace-filters">
+		<div class="row">
+			<div class="col-md-4">
+				<input type="text" class="form-control" id="search-produce" placeholder="{{ _('Search produce...') }}">
+			</div>
+			<div class="col-md-3">
+				<select class="form-control" id="filter-category">
+					<option value="">{{ _("All Categories") }}</option>
+					<option value="Vegetables">{{ _("Vegetables") }}</option>
+					<option value="Fruits">{{ _("Fruits") }}</option>
+					<option value="Grains">{{ _("Grains") }}</option>
+					<option value="Pulses">{{ _("Pulses") }}</option>
+					<option value="Dairy">{{ _("Dairy") }}</option>
+					<option value="Meat">{{ _("Meat") }}</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<select class="form-control" id="filter-farm">
+					<option value="">{{ _("All Farms") }}</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-success btn-block" onclick="searchProduce()">
+					{{ _("Search") }}
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="produce-grid" id="produce-list">
+		<div class="text-center py-5">
+			<p class="text-muted">{{ _("Loading available produce...") }}</p>
+		</div>
+	</div>
+
+	<div class="marketplace-info">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="info-card">
+					<div class="info-icon">🌱</div>
+					<h4>{{ _("Fresh from Farm") }}</h4>
+					<p>{{ _("Direct from local farms to your doorstep") }}</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="info-card">
+					<div class="info-icon">✅</div>
+					<h4>{{ _("Quality Assured") }}</h4>
+					<p>{{ _("All produce graded and quality checked") }}</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="info-card">
+					<div class="info-icon">🚚</div>
+					<h4>{{ _("Fast Delivery") }}</h4>
+					<p>{{ _("Quick delivery to maintain freshness") }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+.marketplace {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.marketplace-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.marketplace-header h1 {
+	color: #2e7d32;
+	font-weight: 700;
+}
+
+.marketplace-filters {
+	background: #f5f5f5;
+	padding: 1.5rem;
+	border-radius: 12px;
+	margin-bottom: 2rem;
+}
+
+.produce-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.5rem;
+	margin-bottom: 3rem;
+}
+
+.produce-card {
+	background: white;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produce-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.produce-image {
+	height: 180px;
+	background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 4rem;
+}
+
+.produce-details {
+	padding: 1rem;
+}
+
+.produce-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 0.5rem;
+}
+
+.produce-farm {
+	color: #666;
+	font-size: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+
+.produce-grade {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	background: #e8f5e9;
+	color: #2e7d32;
+	border-radius: 4px;
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
+}
+
+.produce-price {
+	font-size: 1.3rem;
+	font-weight: 700;
+	color: #2e7d32;
+}
+
+.produce-unit {
+	font-size: 0.9rem;
+	color: #666;
+}
+
+.produce-actions {
+	padding: 1rem;
+	border-top: 1px solid #eee;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.btn-inquiry {
+	flex: 1;
+	background: #2e7d32;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.btn-inquiry:hover {
+	background: #1b5e20;
+}
+
+.marketplace-info {
+	background: #f1f8e9;
+	padding: 2rem;
+	border-radius: 12px;
+}
+
+.info-card {
+	text-align: center;
+	padding: 1rem;
+}
+
+.info-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.info-card h4 {
+	color: #2e7d32;
+}
+
+.info-card p {
+	color: #666;
+	margin: 0;
+}
+</style>
+
+<script>
+frappe.ready(function() {
+	loadFarms();
+	loadProduce();
+});
+
+function loadFarms() {
+	frappe.call({
+		method: "frappe.client.get_list",
+		args: {
+			doctype: "Farm",
+			fields: ["name", "farm_name"],
+			limit: 100
+		},
+		callback: function(r) {
+			if (r.message) {
+				var select = $("#filter-farm");
+				r.message.forEach(function(farm) {
+					select.append('<option value="' + farm.name + '">' + farm.farm_name + '</option>');
+				});
+			}
+		}
+	});
+}
+
+function loadProduce() {
+	// In a real implementation, this would load available produce from harvest entries
+	// For now, we'll show sample produce items
+	var sampleProduce = [
+		{name: "Fresh Tomatoes", farm: "Green Valley Farm", grade: "Grade A", price: 45, unit: "kg", emoji: "🍅"},
+		{name: "Organic Rice", farm: "Sunrise Farms", grade: "Premium", price: 85, unit: "kg", emoji: "🌾"},
+		{name: "Farm Fresh Eggs", farm: "Happy Hens Farm", grade: "Grade A", price: 120, unit: "dozen", emoji: "🥚"},
+		{name: "Fresh Milk", farm: "Dairy Dreams", grade: "Standard", price: 60, unit: "liter", emoji: "🥛"},
+		{name: "Green Peppers", farm: "Valley Gardens", grade: "Grade B", price: 35, unit: "kg", emoji: "🫑"},
+		{name: "Sweet Corn", farm: "Golden Fields", grade: "Grade A", price: 40, unit: "kg", emoji: "🌽"}
+	];
+
+	var html = '';
+	sampleProduce.forEach(function(item) {
+		html += `
+			<div class="produce-card">
+				<div class="produce-image">${item.emoji}</div>
+				<div class="produce-details">
+					<div class="produce-name">${item.name}</div>
+					<div class="produce-farm">${item.farm}</div>
+					<div class="produce-grade">${item.grade}</div>
+					<div>
+						<span class="produce-price">₹${item.price}</span>
+						<span class="produce-unit">per ${item.unit}</span>
+					</div>
+				</div>
+				<div class="produce-actions">
+					<button class="btn-inquiry" onclick="inquire('${item.name}')">Inquire Now</button>
+				</div>
+			</div>
+		`;
+	});
+
+	$("#produce-list").html(html);
+}
+
+function searchProduce() {
+	var search = $("#search-produce").val();
+	var category = $("#filter-category").val();
+	var farm = $("#filter-farm").val();
+	
+	// Implement search logic
+	loadProduce();
+}
+
+function inquire(produceName) {
+	frappe.msgprint({
+		title: 'Inquiry',
+		message: 'Thank you for your interest in ' + produceName + '. Please contact us for more details.',
+		indicator: 'green'
+	});
+}
+</script>
+{% endblock %}

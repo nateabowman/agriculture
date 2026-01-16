@@ -1,0 +1,431 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "budget_name",
+  "crop",
+  "crop_cycle",
+  "column_break_basic",
+  "status",
+  "farm",
+  "plot",
+  "fiscal_year",
+  "area_section",
+  "planned_area",
+  "area_uom",
+  "column_break_area",
+  "cost_per_hectare",
+  "revenue_per_hectare",
+  "inputs_section",
+  "seed_budget",
+  "fertilizer_budget",
+  "pesticide_budget",
+  "column_break_inputs",
+  "herbicide_budget",
+  "other_input_budget",
+  "total_input_budget",
+  "operations_section",
+  "land_prep_budget",
+  "planting_budget",
+  "irrigation_budget",
+  "column_break_ops",
+  "harvesting_budget",
+  "post_harvest_budget",
+  "total_operations_budget",
+  "labor_section",
+  "labor_budget",
+  "equipment_budget",
+  "column_break_labor",
+  "transport_budget",
+  "total_labor_equipment",
+  "overhead_section",
+  "overhead_budget",
+  "contingency_percent",
+  "contingency_amount",
+  "column_break_overhead",
+  "interest_cost",
+  "insurance_cost",
+  "total_overhead",
+  "summary_section",
+  "total_cost_budget",
+  "column_break_summary",
+  "expected_yield",
+  "yield_uom",
+  "expected_price",
+  "revenue_section",
+  "expected_revenue",
+  "expected_profit",
+  "column_break_revenue",
+  "roi_percent",
+  "break_even_yield",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Budget Information"
+  },
+  {
+   "default": "BUD-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "BUD-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Budget Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Crop",
+   "options": "Crop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop Cycle",
+   "options": "Crop Cycle"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nApproved\nIn Progress\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Plot",
+   "options": "Plot"
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "label": "Fiscal Year",
+   "options": "Fiscal Year"
+  },
+  {
+   "fieldname": "area_section",
+   "fieldtype": "Section Break",
+   "label": "Area Planning"
+  },
+  {
+   "fieldname": "planned_area",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Planned Area"
+  },
+  {
+   "default": "Hectare",
+   "fieldname": "area_uom",
+   "fieldtype": "Link",
+   "label": "Area UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_area",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_per_hectare",
+   "fieldtype": "Currency",
+   "label": "Cost per Hectare",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revenue_per_hectare",
+   "fieldtype": "Currency",
+   "label": "Revenue per Hectare",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inputs_section",
+   "fieldtype": "Section Break",
+   "label": "Input Costs"
+  },
+  {
+   "fieldname": "seed_budget",
+   "fieldtype": "Currency",
+   "label": "Seeds/Planting Material"
+  },
+  {
+   "fieldname": "fertilizer_budget",
+   "fieldtype": "Currency",
+   "label": "Fertilizers"
+  },
+  {
+   "fieldname": "pesticide_budget",
+   "fieldtype": "Currency",
+   "label": "Pesticides"
+  },
+  {
+   "fieldname": "column_break_inputs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "herbicide_budget",
+   "fieldtype": "Currency",
+   "label": "Herbicides"
+  },
+  {
+   "fieldname": "other_input_budget",
+   "fieldtype": "Currency",
+   "label": "Other Inputs"
+  },
+  {
+   "fieldname": "total_input_budget",
+   "fieldtype": "Currency",
+   "label": "Total Input Budget",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operations_section",
+   "fieldtype": "Section Break",
+   "label": "Operations Costs"
+  },
+  {
+   "fieldname": "land_prep_budget",
+   "fieldtype": "Currency",
+   "label": "Land Preparation"
+  },
+  {
+   "fieldname": "planting_budget",
+   "fieldtype": "Currency",
+   "label": "Planting"
+  },
+  {
+   "fieldname": "irrigation_budget",
+   "fieldtype": "Currency",
+   "label": "Irrigation"
+  },
+  {
+   "fieldname": "column_break_ops",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "harvesting_budget",
+   "fieldtype": "Currency",
+   "label": "Harvesting"
+  },
+  {
+   "fieldname": "post_harvest_budget",
+   "fieldtype": "Currency",
+   "label": "Post-Harvest Handling"
+  },
+  {
+   "fieldname": "total_operations_budget",
+   "fieldtype": "Currency",
+   "label": "Total Operations Budget",
+   "read_only": 1
+  },
+  {
+   "fieldname": "labor_section",
+   "fieldtype": "Section Break",
+   "label": "Labor & Equipment"
+  },
+  {
+   "fieldname": "labor_budget",
+   "fieldtype": "Currency",
+   "label": "Labor"
+  },
+  {
+   "fieldname": "equipment_budget",
+   "fieldtype": "Currency",
+   "label": "Equipment/Machinery"
+  },
+  {
+   "fieldname": "column_break_labor",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transport_budget",
+   "fieldtype": "Currency",
+   "label": "Transport"
+  },
+  {
+   "fieldname": "total_labor_equipment",
+   "fieldtype": "Currency",
+   "label": "Total Labor & Equipment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overhead_section",
+   "fieldtype": "Section Break",
+   "label": "Overhead Costs"
+  },
+  {
+   "fieldname": "overhead_budget",
+   "fieldtype": "Currency",
+   "label": "General Overhead"
+  },
+  {
+   "default": "10",
+   "fieldname": "contingency_percent",
+   "fieldtype": "Percent",
+   "label": "Contingency %"
+  },
+  {
+   "fieldname": "contingency_amount",
+   "fieldtype": "Currency",
+   "label": "Contingency Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_overhead",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interest_cost",
+   "fieldtype": "Currency",
+   "label": "Interest Cost"
+  },
+  {
+   "fieldname": "insurance_cost",
+   "fieldtype": "Currency",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "total_overhead",
+   "fieldtype": "Currency",
+   "label": "Total Overhead",
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Budget Summary"
+  },
+  {
+   "fieldname": "total_cost_budget",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost Budget",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_yield",
+   "fieldtype": "Float",
+   "label": "Expected Yield"
+  },
+  {
+   "fieldname": "yield_uom",
+   "fieldtype": "Link",
+   "label": "Yield UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "expected_price",
+   "fieldtype": "Currency",
+   "label": "Expected Price per Unit"
+  },
+  {
+   "fieldname": "revenue_section",
+   "fieldtype": "Section Break",
+   "label": "Revenue & Profit"
+  },
+  {
+   "fieldname": "expected_revenue",
+   "fieldtype": "Currency",
+   "label": "Expected Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expected_profit",
+   "fieldtype": "Currency",
+   "label": "Expected Profit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_revenue",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roi_percent",
+   "fieldtype": "Percent",
+   "label": "ROI %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "break_even_yield",
+   "fieldtype": "Float",
+   "label": "Break-even Yield",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Crop Budget",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "budget_name",
+ "track_changes": 1
+}

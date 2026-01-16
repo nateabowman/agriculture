@@ -1,14 +1,9 @@
-from . import __version__ as app_version
-
 app_name = "agriculture"
 app_title = "Agriculture"
 app_publisher = "Frappe"
 app_description = "Agriculture"
-app_icon = "octicon octicon-file-directory"
-app_color = "grey"
 app_email = "pandikunta@frappe.io"
 app_license = "MIT"
-
 
 required_apps = ["erpnext"]
 
@@ -193,16 +188,27 @@ after_uninstall = "agriculture.agriculture.setup.cleanup_role_and_permissions"
 
 global_search_doctypes = {
 	"Agriculture": [
-		{'doctype': 'Weather', 'index': 1},
-		{'doctype': 'Soil Texture', 'index': 2},
-		{'doctype': 'Water Analysis', 'index': 3},
-		{'doctype': 'Soil Analysis', 'index': 4},
-		{'doctype': 'Plant Analysis', 'index': 5},
-		{'doctype': 'Agriculture Analysis Criteria', 'index': 6},
-		{'doctype': 'Disease', 'index': 7},
-		{'doctype': 'Crop', 'index': 8},
-		{'doctype': 'Fertilizer', 'index': 9},
-		{'doctype': 'Crop Cycle', 'index': 10}
+		{'doctype': 'Farm', 'index': 1},
+		{'doctype': 'Plot', 'index': 2},
+		{'doctype': 'Crop', 'index': 3},
+		{'doctype': 'Crop Cycle', 'index': 4},
+		{'doctype': 'Livestock', 'index': 5},
+		{'doctype': 'Livestock Type', 'index': 6},
+		{'doctype': 'Equipment', 'index': 7},
+		{'doctype': 'Harvest Entry', 'index': 8},
+		{'doctype': 'Farming Contract', 'index': 9},
+		{'doctype': 'Farm Worker', 'index': 10},
+		{'doctype': 'Field Task', 'index': 11},
+		{'doctype': 'Crop Budget', 'index': 12},
+		{'doctype': 'Weather', 'index': 13},
+		{'doctype': 'Soil Texture', 'index': 14},
+		{'doctype': 'Water Analysis', 'index': 15},
+		{'doctype': 'Soil Analysis', 'index': 16},
+		{'doctype': 'Plant Analysis', 'index': 17},
+		{'doctype': 'Disease', 'index': 18},
+		{'doctype': 'Fertilizer', 'index': 19},
+		{'doctype': 'Sensor Device', 'index': 20},
+		{'doctype': 'Irrigation Schedule', 'index': 21}
 	]
 }
 

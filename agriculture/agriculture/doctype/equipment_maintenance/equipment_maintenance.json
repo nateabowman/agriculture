@@ -1,0 +1,278 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "equipment",
+  "farm",
+  "column_break_basic",
+  "maintenance_type",
+  "maintenance_date",
+  "status",
+  "details_section",
+  "description",
+  "work_performed",
+  "column_break_details",
+  "hours_at_service",
+  "performed_by",
+  "technician_name",
+  "parts_section",
+  "parts_replaced",
+  "costs_section",
+  "labor_cost",
+  "parts_cost",
+  "other_cost",
+  "column_break_costs",
+  "total_cost",
+  "invoice_number",
+  "supplier",
+  "schedule_section",
+  "is_scheduled",
+  "scheduled_date",
+  "column_break_schedule",
+  "completed_date",
+  "next_service_date",
+  "attachments_section",
+  "attachments",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance Information"
+  },
+  {
+   "default": "MAINT-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MAINT-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Equipment",
+   "options": "Equipment",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "equipment.farm",
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "label": "Farm",
+   "options": "Farm",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maintenance_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Maintenance Type",
+   "options": "\nPreventive\nCorrective\nEmergency\nPredictive\nOverhaul\nInspection\nOil Change\nFilter Change\nTire Service\nBrake Service\nElectrical\nHydraulic\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "maintenance_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Maintenance Date",
+   "reqd": 1
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Scheduled\nIn Progress\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Issue Description"
+  },
+  {
+   "fieldname": "work_performed",
+   "fieldtype": "Small Text",
+   "label": "Work Performed"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hours_at_service",
+   "fieldtype": "Float",
+   "label": "Hours Meter at Service"
+  },
+  {
+   "fieldname": "performed_by",
+   "fieldtype": "Select",
+   "label": "Performed By",
+   "options": "\nIn-House\nExternal Technician\nDealer\nManufacturer"
+  },
+  {
+   "fieldname": "technician_name",
+   "fieldtype": "Data",
+   "label": "Technician Name"
+  },
+  {
+   "fieldname": "parts_section",
+   "fieldtype": "Section Break",
+   "label": "Parts Replaced"
+  },
+  {
+   "fieldname": "parts_replaced",
+   "fieldtype": "Table",
+   "label": "Parts Replaced",
+   "options": "Equipment Maintenance Part"
+  },
+  {
+   "fieldname": "costs_section",
+   "fieldtype": "Section Break",
+   "label": "Costs"
+  },
+  {
+   "fieldname": "labor_cost",
+   "fieldtype": "Currency",
+   "label": "Labor Cost"
+  },
+  {
+   "fieldname": "parts_cost",
+   "fieldtype": "Currency",
+   "label": "Parts Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "other_cost",
+   "fieldtype": "Currency",
+   "label": "Other Costs"
+  },
+  {
+   "fieldname": "column_break_costs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Service Provider/Supplier",
+   "options": "Supplier"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Scheduling"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_scheduled",
+   "fieldtype": "Check",
+   "label": "Is Scheduled Maintenance"
+  },
+  {
+   "fieldname": "scheduled_date",
+   "fieldtype": "Date",
+   "label": "Originally Scheduled Date"
+  },
+  {
+   "fieldname": "column_break_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed_date",
+   "fieldtype": "Date",
+   "label": "Completion Date"
+  },
+  {
+   "fieldname": "next_service_date",
+   "fieldtype": "Date",
+   "label": "Next Service Due"
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments & Notes"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Equipment Maintenance",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "maintenance_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

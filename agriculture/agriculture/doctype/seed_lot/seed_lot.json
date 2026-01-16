@@ -1,0 +1,405 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "lot_name",
+  "crop",
+  "variety",
+  "column_break_basic",
+  "status",
+  "batch_number",
+  "item",
+  "source_section",
+  "source_type",
+  "supplier",
+  "source_farm",
+  "column_break_source",
+  "harvest_date",
+  "harvest_location",
+  "parent_seed_lot",
+  "quantity_section",
+  "initial_quantity",
+  "current_quantity",
+  "quantity_uom",
+  "column_break_qty",
+  "weight_per_1000_seeds",
+  "seeds_per_kg",
+  "quality_section",
+  "germination_rate",
+  "purity_percentage",
+  "moisture_content",
+  "column_break_quality",
+  "vigor_index",
+  "genetic_purity",
+  "test_date",
+  "certification_section",
+  "seed_class",
+  "certification_number",
+  "certification_date",
+  "column_break_cert",
+  "certified_by",
+  "certification_expiry",
+  "treatment_section",
+  "is_treated",
+  "treatment_type",
+  "treatment_date",
+  "column_break_treat",
+  "treatment_chemical",
+  "treatment_notes",
+  "storage_section",
+  "storage_location",
+  "storage_conditions",
+  "column_break_storage",
+  "received_date",
+  "expiry_date",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Seed Lot Information"
+  },
+  {
+   "default": "SEED-LOT-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SEED-LOT-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lot_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lot Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Crop",
+   "options": "Crop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variety",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Variety/Cultivar"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nReserved\nIn Use\nExhausted\nExpired\nDiscarded"
+  },
+  {
+   "fieldname": "batch_number",
+   "fieldtype": "Data",
+   "label": "Batch/Lot Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Linked Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "source_section",
+   "fieldtype": "Section Break",
+   "label": "Source"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "label": "Source Type",
+   "options": "\nPurchased\nSelf-Produced\nGifted\nExchange\nResearch"
+  },
+  {
+   "depends_on": "eval:doc.source_type=='Purchased'",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.source_type=='Self-Produced'",
+   "fieldname": "source_farm",
+   "fieldtype": "Link",
+   "label": "Source Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "column_break_source",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "harvest_date",
+   "fieldtype": "Date",
+   "label": "Harvest/Production Date"
+  },
+  {
+   "fieldname": "harvest_location",
+   "fieldtype": "Data",
+   "label": "Harvest Location"
+  },
+  {
+   "fieldname": "parent_seed_lot",
+   "fieldtype": "Link",
+   "label": "Parent Seed Lot",
+   "options": "Seed Lot"
+  },
+  {
+   "fieldname": "quantity_section",
+   "fieldtype": "Section Break",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "initial_quantity",
+   "fieldtype": "Float",
+   "label": "Initial Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Quantity"
+  },
+  {
+   "default": "Kg",
+   "fieldname": "quantity_uom",
+   "fieldtype": "Link",
+   "label": "Quantity UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight_per_1000_seeds",
+   "fieldtype": "Float",
+   "label": "Weight per 1000 Seeds (g)"
+  },
+  {
+   "fieldname": "seeds_per_kg",
+   "fieldtype": "Int",
+   "label": "Seeds per Kg"
+  },
+  {
+   "fieldname": "quality_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Parameters"
+  },
+  {
+   "fieldname": "germination_rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Germination Rate %"
+  },
+  {
+   "fieldname": "purity_percentage",
+   "fieldtype": "Percent",
+   "label": "Purity %"
+  },
+  {
+   "fieldname": "moisture_content",
+   "fieldtype": "Percent",
+   "label": "Moisture Content %"
+  },
+  {
+   "fieldname": "column_break_quality",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vigor_index",
+   "fieldtype": "Float",
+   "label": "Vigor Index"
+  },
+  {
+   "fieldname": "genetic_purity",
+   "fieldtype": "Percent",
+   "label": "Genetic Purity %"
+  },
+  {
+   "fieldname": "test_date",
+   "fieldtype": "Date",
+   "label": "Quality Test Date"
+  },
+  {
+   "fieldname": "certification_section",
+   "fieldtype": "Section Break",
+   "label": "Certification"
+  },
+  {
+   "fieldname": "seed_class",
+   "fieldtype": "Select",
+   "label": "Seed Class",
+   "options": "\nBreeder Seed\nFoundation Seed\nRegistered Seed\nCertified Seed\nTruthfully Labeled"
+  },
+  {
+   "fieldname": "certification_number",
+   "fieldtype": "Data",
+   "label": "Certification Number"
+  },
+  {
+   "fieldname": "certification_date",
+   "fieldtype": "Date",
+   "label": "Certification Date"
+  },
+  {
+   "fieldname": "column_break_cert",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "certified_by",
+   "fieldtype": "Data",
+   "label": "Certified By"
+  },
+  {
+   "fieldname": "certification_expiry",
+   "fieldtype": "Date",
+   "label": "Certification Expiry"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "treatment_section",
+   "fieldtype": "Section Break",
+   "label": "Seed Treatment"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_treated",
+   "fieldtype": "Check",
+   "label": "Is Treated"
+  },
+  {
+   "depends_on": "is_treated",
+   "fieldname": "treatment_type",
+   "fieldtype": "Select",
+   "label": "Treatment Type",
+   "options": "\nFungicide\nInsecticide\nBiological\nCoating\nPriming"
+  },
+  {
+   "depends_on": "is_treated",
+   "fieldname": "treatment_date",
+   "fieldtype": "Date",
+   "label": "Treatment Date"
+  },
+  {
+   "fieldname": "column_break_treat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "is_treated",
+   "fieldname": "treatment_chemical",
+   "fieldtype": "Data",
+   "label": "Treatment Chemical"
+  },
+  {
+   "depends_on": "is_treated",
+   "fieldname": "treatment_notes",
+   "fieldtype": "Small Text",
+   "label": "Treatment Notes"
+  },
+  {
+   "fieldname": "storage_section",
+   "fieldtype": "Section Break",
+   "label": "Storage"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Link",
+   "label": "Storage Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "storage_conditions",
+   "fieldtype": "Small Text",
+   "label": "Storage Conditions"
+  },
+  {
+   "fieldname": "column_break_storage",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "received_date",
+   "fieldtype": "Date",
+   "label": "Received Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Seed Lot",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "lot_name",
+ "track_changes": 1
+}

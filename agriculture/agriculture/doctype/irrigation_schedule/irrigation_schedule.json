@@ -1,0 +1,307 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "schedule_name",
+  "irrigation_type",
+  "status",
+  "column_break_basic",
+  "farm",
+  "plot",
+  "crop_cycle",
+  "schedule_section",
+  "schedule_type",
+  "start_date",
+  "end_date",
+  "column_break_schedule",
+  "frequency",
+  "days_of_week",
+  "time_section",
+  "start_time",
+  "duration_minutes",
+  "column_break_time",
+  "end_time",
+  "water_amount_liters",
+  "automation_section",
+  "is_automated",
+  "sensor_device",
+  "trigger_moisture_below",
+  "column_break_auto",
+  "stop_moisture_above",
+  "weather_override",
+  "execution_section",
+  "last_run_date",
+  "last_run_time",
+  "next_scheduled_run",
+  "column_break_exec",
+  "total_runs",
+  "total_water_used",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule Information"
+  },
+  {
+   "default": "IRR-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "IRR-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schedule_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Schedule Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "irrigation_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Irrigation Type",
+   "options": "\nDrip\nSprinkler\nFurrow\nFlood\nCenter Pivot\nSubsurface\nManual"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nPaused\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "farm",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Farm",
+   "options": "Farm"
+  },
+  {
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Plot",
+   "options": "Plot",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop Cycle",
+   "options": "Crop Cycle"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "schedule_type",
+   "fieldtype": "Select",
+   "label": "Schedule Type",
+   "options": "\nFixed Schedule\nSensor-Based\nWeather-Based\nManual"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "\nDaily\nEvery 2 Days\nEvery 3 Days\nWeekly\nBi-weekly\nCustom"
+  },
+  {
+   "fieldname": "days_of_week",
+   "fieldtype": "Data",
+   "label": "Days of Week (for Custom)"
+  },
+  {
+   "fieldname": "time_section",
+   "fieldtype": "Section Break",
+   "label": "Time & Duration"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "duration_minutes",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Duration (minutes)"
+  },
+  {
+   "fieldname": "column_break_time",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "water_amount_liters",
+   "fieldtype": "Float",
+   "label": "Water Amount (Liters)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "automation_section",
+   "fieldtype": "Section Break",
+   "label": "Automation Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_automated",
+   "fieldtype": "Check",
+   "label": "Is Automated"
+  },
+  {
+   "depends_on": "is_automated",
+   "fieldname": "sensor_device",
+   "fieldtype": "Link",
+   "label": "Soil Moisture Sensor",
+   "options": "Sensor Device"
+  },
+  {
+   "depends_on": "is_automated",
+   "description": "Start irrigation when soil moisture drops below this %",
+   "fieldname": "trigger_moisture_below",
+   "fieldtype": "Percent",
+   "label": "Trigger When Moisture Below"
+  },
+  {
+   "fieldname": "column_break_auto",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "is_automated",
+   "description": "Stop irrigation when soil moisture reaches this %",
+   "fieldname": "stop_moisture_above",
+   "fieldtype": "Percent",
+   "label": "Stop When Moisture Above"
+  },
+  {
+   "default": "1",
+   "depends_on": "is_automated",
+   "description": "Skip irrigation if rain is forecast",
+   "fieldname": "weather_override",
+   "fieldtype": "Check",
+   "label": "Weather Override"
+  },
+  {
+   "fieldname": "execution_section",
+   "fieldtype": "Section Break",
+   "label": "Execution Log"
+  },
+  {
+   "fieldname": "last_run_date",
+   "fieldtype": "Date",
+   "label": "Last Run Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_run_time",
+   "fieldtype": "Time",
+   "label": "Last Run Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_scheduled_run",
+   "fieldtype": "Datetime",
+   "label": "Next Scheduled Run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_exec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_runs",
+   "fieldtype": "Int",
+   "label": "Total Runs",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_water_used",
+   "fieldtype": "Float",
+   "label": "Total Water Used (Liters)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Irrigation Schedule",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "schedule_name",
+ "track_changes": 1
+}

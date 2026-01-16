@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\": \"header\", \"data\": {\"text\": \"Reports & Masters\", \"level\": 4, \"col\": 12}}, {\"type\": \"card\", \"data\": {\"card_name\": \"Crops & Lands\", \"col\": 4}}, {\"type\": \"card\", \"data\": {\"card_name\": \"Analytics\", \"col\": 4}}, {\"type\": \"card\", \"data\": {\"card_name\": \"Diseases & Fertilizers\", \"col\": 4}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Farm Management\",\"level\":4,\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Active Crop Cycles\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Farms\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Livestock\",\"col\":4}},{\"type\":\"header\",\"data\":{\"text\":\"Quick Links\",\"level\":4,\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Farm Operations\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Crops & Harvest\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Livestock Management\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Equipment & Maintenance\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Sales & Contracts\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Workforce\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"IoT & Irrigation\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Analysis & Reports\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
  "creation": "2020-03-02 17:23:34.339274",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,7 +13,48 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Crops & Lands",
+   "label": "Farm Operations",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farm",
+   "link_count": 0,
+   "link_to": "Farm",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Plot",
+   "link_count": 0,
+   "link_to": "Plot",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Field Task",
+   "link_count": 0,
+   "link_to": "Field Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crops & Harvest",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -44,17 +85,50 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Location",
+   "label": "Harvest Entry",
    "link_count": 0,
-   "link_to": "Location",
+   "link_to": "Harvest Entry",
    "link_type": "DocType",
-   "onboard": 1,
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Seed Lot",
+   "link_count": 0,
+   "link_to": "Seed Lot",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Agricultural Input",
+   "link_count": 0,
+   "link_to": "Agricultural Input",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Budget",
+   "link_count": 0,
+   "link_to": "Crop Budget",
+   "link_type": "DocType",
+   "onboard": 0,
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Analytics",
+   "label": "Livestock Management",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -63,12 +137,184 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Plant Analysis",
+   "label": "Livestock",
    "link_count": 0,
-   "link_to": "Plant Analysis",
+   "link_to": "Livestock",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Type",
+   "link_count": 0,
+   "link_to": "Livestock Type",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Event",
+   "link_count": 0,
+   "link_to": "Livestock Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment & Maintenance",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment",
+   "link_count": 0,
+   "link_to": "Equipment",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Equipment Maintenance",
+   "link_count": 0,
+   "link_to": "Equipment Maintenance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales & Contracts",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farming Contract",
+   "link_count": 0,
+   "link_to": "Farming Contract",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Produce Grading",
+   "link_count": 0,
+   "link_to": "Produce Grading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Workforce",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farm Worker",
+   "link_count": 0,
+   "link_to": "Farm Worker",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Field Task",
+   "link_count": 0,
+   "link_to": "Field Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IoT & Irrigation",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sensor Device",
+   "link_count": 0,
+   "link_to": "Sensor Device",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sensor Reading",
+   "link_count": 0,
+   "link_to": "Sensor Reading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Irrigation Schedule",
+   "link_count": 0,
+   "link_to": "Irrigation Schedule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Weather",
+   "link_count": 0,
+   "link_to": "Weather",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Analysis & Reports",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
   },
   {
    "dependencies": "",
@@ -77,17 +323,6 @@
    "label": "Soil Analysis",
    "link_count": 0,
    "link_to": "Soil Analysis",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Water Analysis",
-   "link_count": 0,
-   "link_to": "Water Analysis",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -107,9 +342,50 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Weather",
+   "label": "Plant Analysis",
    "link_count": 0,
-   "link_to": "Weather",
+   "link_to": "Plant Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Water Analysis",
+   "link_count": 0,
+   "link_to": "Water Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Disease",
+   "link_count": 0,
+   "link_to": "Disease",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fertilizer",
+   "link_count": 0,
+   "link_to": "Fertilizer",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -124,39 +400,9 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Diseases & Fertilizers",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Disease",
-   "link_count": 0,
-   "link_to": "Disease",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Fertilizer",
-   "link_count": 0,
-   "link_to": "Fertilizer",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
   }
  ],
- "modified": "2021-08-05 12:15:54.595198",
+ "modified": "2024-01-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture",
@@ -166,6 +412,33 @@
  "restrict_to_domain": "Agriculture",
  "roles": [],
  "sequence_id": 3,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Active Crop Cycles",
+   "link_to": "Crop Cycle",
+   "restrict_to_domain": "",
+   "stats_filter": "{\"status\":[\"in\",[\"Planted\",\"Growing\",\"Flowering\",\"Fruiting\"]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "All Farms",
+   "link_to": "Farm",
+   "restrict_to_domain": "",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Livestock",
+   "link_to": "Livestock",
+   "restrict_to_domain": "",
+   "stats_filter": "{\"status\":\"Active\"}",
+   "type": "DocType"
+  }
+ ],
  "title": "Agriculture"
 }

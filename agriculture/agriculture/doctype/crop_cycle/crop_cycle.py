@@ -7,19 +7,25 @@ import ast
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_days
+from frappe.utils import add_days, flt
 
 
 class CropCycle(Document):
 	def validate(self):
 		self.set_missing_values()
+		self.calculate_totals()
+		self.calculate_yield_percentage()
 
 	def after_insert(self):
 		self.create_crop_cycle_project()
 		self.create_tasks_for_diseases()
+		self.update_plot_status()
 
 	def on_update(self):
 		self.create_tasks_for_diseases()
+
+	def on_trash(self):
+		self.clear_plot_status()
 
 	def set_missing_values(self):
 		crop = frappe.get_doc('Crop', self.crop)
@@ -29,6 +35,64 @@ class CropCycle(Document):
 
 		if not self.row_spacing_uom:
 			self.row_spacing_uom = crop.row_spacing_uom
+
+		# Set farm from plot if not provided
+		if self.plot and not self.farm:
+			self.farm = frappe.db.get_value("Plot", self.plot, "farm")
+
+		# Set yield UOM from crop
+		if not self.yield_uom and crop.yield_uom:
+			self.yield_uom = crop.yield_uom
+
+		# Calculate expected end date from crop period
+		if self.start_date and crop.period and not self.expected_end_date:
+			self.expected_end_date = add_days(self.start_date, crop.period - 1)
+
+	def calculate_totals(self):
+		"""Calculate total costs and profit/loss"""
+		self.total_input_cost = flt(self.seed_cost) + flt(self.fertilizer_cost) + \
+			flt(self.pesticide_cost) + flt(self.labor_cost) + \
+			flt(self.equipment_cost) + flt(self.other_costs)
+
+		if self.area_planted and self.area_planted > 0:
+			self.cost_per_unit_area = self.total_input_cost / self.area_planted
+		else:
+			self.cost_per_unit_area = 0
+
+		self.profit_loss = flt(self.revenue) - flt(self.total_input_cost)
+
+	def calculate_yield_percentage(self):
+		"""Calculate actual yield as percentage of expected"""
+		if self.expected_yield and self.expected_yield > 0 and self.actual_yield:
+			self.yield_percentage = (self.actual_yield / self.expected_yield) * 100
+		else:
+			self.yield_percentage = 0
+
+	def update_plot_status(self):
+		"""Update linked plot status when cycle is created"""
+		if self.plot:
+			plot = frappe.get_doc("Plot", self.plot)
+			plot.current_crop = self.crop
+			plot.current_crop_cycle = self.name
+			plot.status = "Planted"
+			plot.save()
+
+	def clear_plot_status(self):
+		"""Clear plot status when cycle is deleted"""
+		if self.plot:
+			plot = frappe.get_doc("Plot", self.plot)
+			if plot.current_crop_cycle == self.name:
+				plot.current_crop = None
+				plot.current_crop_cycle = None
+				plot.status = "Available"
+				plot.save()
+
+	def complete_cycle(self):
+		"""Mark cycle as completed and update plot"""
+		self.status = "Completed"
+		self.actual_end_date = frappe.utils.nowdate()
+		self.save()
+		self.clear_plot_status()
 
 	def create_crop_cycle_project(self):
 		crop = frappe.get_doc('Crop', self.crop)
